@@ -1,6 +1,6 @@
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
-    uuid UUID NOT NULL,
+    uuid UUID NOT NULL UNIQUE,
     title VARCHAR NOT NULL,
     slug VARCHAR NOT NULL,
     created_at TIMESTAMP NOT NULL,
