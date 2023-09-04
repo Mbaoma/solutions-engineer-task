@@ -2,7 +2,7 @@ CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
     order_status_id INTEGER REFERENCES order_statuses(id),
-    payment_id INTEGER REFERENCES payments(id),
+    payment_id INTEGER UNIQUE NOT NULL REFERENCES payments(id), 
     uuid UUID NOT NULL,
     products JSON NOT NULL,
     address JSON NOT NULL,
