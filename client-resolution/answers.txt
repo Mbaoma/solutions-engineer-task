@@ -1,0 +1,46 @@
+Case 1:
+
+The client has brought to our attention an issue concerning the final price displayed during their purchase. They bought one item for 35Kn and two items for 20Kn each, but the final price shown on the screen was 85Kn.
+
+My solution
+I will take the following steps:
+- I will make an initial verification by replicating the problem. I will make an attempt to acquire a single item for a price of 35Kn, as well as two goods individually priced at 20Kn each.
+- Then in the event of a discrepancy, I will engage the backend and frontend development teams in order to ascertain whether the issue is from the pricing engine configuration or is a display-related matter.
+- I will also utilise low-code tools that fall within the purview of the Solutions team, to potentially rectify any configuration issues pertaining to the ultimate price.
+- Once I implement a fix, I collaborate with the Quality Assurance team to ensure thorough testing of the solution.
+- Lastly, I will inform the customer about the progress made in resolving the issue and, if deemed appropriate, offer compensation.
+
+Case 2:
+
+A client has reported difficulty in logging in despite providing the correct username and password combination. In addition, when attempting to reset the password through the "Forgot password?" feature, they are not receiving the recovery email with the link.
+
+My solution
+I will take the following steps:
+- I will verify the client's username and email address within the system.
+- I will collaborate with the backend development team in order to ascertain and address any potential difficulties pertaining to the authentication process, specifically within the domain of "Identity and Access Management".
+- I will then do a critical analysis of email systems by collaborating with the team accountable for email communications to ensure the accurate and timely dispatch of recovery emails.
+- I will engage the quality assurance team in conducting tests on the login and password reset procedure.
+- Lastly, I will provide the client with an update regarding the current status and resolution of the issue.
+
+
+Case 3:
+A customer is encountering issues during the payment stage, with the screen freezing when attempting to complete the process, despite trying all available payment methods.
+
+My solution:
+I will take the following steps:
+- I will replicate the issue by making a payment using different methods and observe if the screen freezes.
+- I will contact the backend development team, especially those handling banking integration services, to diagnose any potential errors or hitches in the payment process.
+- I will contact the quality assurance team to rigorously test all payment methods.
+- Lastly, I will inform the client about the resolution and possibly suggest a temporary alternative payment method if a fix will take time.
+
+Case 4:
+
+A customer has reported receiving the "Amount Due" email as expected. However, they mentioned that the wording hasn't been displayed correctly, preventing them from seeing the actual amount they need to pay. Instead, the email only reads "{amunt_due}."
+
+My solution:
+I will take the following steps:
+- First, I will analyze the problematic email by carefully looking over the email template being used to send the "Amount Due" emails.
+- As the solutions team is responsible for email logic rules and documents, I will correct any errors in the template that may cause variables like "{amunt_due}" to display incorrectly.
+- If the problem is not with the template itself, I will collaborate with both the backend and frontend development teams to determine if the issue arises from data fetching or display mechanisms.
+- After resolving the issue, I will work with quality assurance to ensure emails are being sent correctly.
+- Lastly, I will notify the customer about the resolution and resend the corrected email.
