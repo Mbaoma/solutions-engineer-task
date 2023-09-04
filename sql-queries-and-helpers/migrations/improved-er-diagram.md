@@ -1,0 +1,1 @@
+To accommodate products with multiple sub-categories, I introduce a new sub-category concept and construct a many-to-many relationship between products and sub-categories.
