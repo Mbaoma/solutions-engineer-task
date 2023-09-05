@@ -23,21 +23,21 @@ SELECT
 
     -- Thursday
     STRING_AGG(
-        CASE WHEN EXTRACT(DOW FROM sub.created_at) = 5 THEN
+        CASE WHEN EXTRACT(DOW FROM sub.created_at) = 4 THEN
             sub.uuid || '::' || sub.product_count || '::' || (sub.amount * 100)::INT 
         END, ' || '
     ) AS "Thursday",
 
     -- Friday
     STRING_AGG(
-        CASE WHEN EXTRACT(DOW FROM sub.created_at) = 6 THEN
+        CASE WHEN EXTRACT(DOW FROM sub.created_at) = 5 THEN
             sub.uuid || '::' || sub.product_count || '::' || (sub.amount * 100)::INT 
         END, ' || '
     ) AS "Friday",
 
     -- Saturday
     STRING_AGG(
-        CASE WHEN EXTRACT(DOW FROM sub.created_at) = 7 THEN
+        CASE WHEN EXTRACT(DOW FROM sub.created_at) = 6 THEN
             sub.uuid || '::' || sub.product_count || '::' || (sub.amount * 100)::INT 
         END, ' || '
     ) AS "Saturday",
