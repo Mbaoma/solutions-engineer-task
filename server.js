@@ -16,6 +16,9 @@ const hbs = handlebars.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+const base_url = process.env.BASE_URL
+
+
 // Function to authenticate and obtain JWT token
 async function authenticate() {
   const credentials = {
@@ -23,8 +26,10 @@ async function authenticate() {
     password: process.env.PASSWORD
   };
 
+
+
   try {
-    const response = await axios.post('http://pet-shop.buckhill.com.hr/api/v1/admin/login', new URLSearchParams(credentials).toString(), {
+    const response = await axios.post(`${base_url}/api/v1/admin/login`, new URLSearchParams(credentials).toString(), {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
@@ -63,7 +68,7 @@ function formatNumber(num) {
 app.get('/email-template', async (req, res) => {
   try {
     const jwtToken = await authenticate();
-    const ordersUrl = 'http://pet-shop.buckhill.com.hr/api/v1/orders?page=1&limit=1';
+    const ordersUrl = `${base_url}/api/v1/orders?page=1&limit=1`;
     const data = await fetchDataWithToken(ordersUrl, jwtToken);
 
     const templateData = {
@@ -84,6 +89,7 @@ app.get('/email-template', async (req, res) => {
 
     res.render('email-template', templateData);
   } catch (error) {
+    console.log(error);
     res.status(500).send(error.message);
   }
 });
