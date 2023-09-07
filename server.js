@@ -65,7 +65,7 @@ function formatNumber(num) {
   return new Intl.NumberFormat().format(num);
 }
 
-app.get('/email-template', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const jwtToken = await authenticate();
     const ordersUrl = `${base_url}/api/v1/orders?page=1&limit=1`;
