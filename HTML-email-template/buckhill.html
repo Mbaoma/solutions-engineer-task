@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>BuckHill HTML Template</title>
+    <!-- Include Handlebars from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!--[if mso]>
+      <noscript>
+        <xml>
+          <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+        </xml>
+      </noscript>
+    <![endif]-->
+    <style>
+      table,
+      td,
+      div,
+      h1,
+      p {
+        font-family: "Nunito", sans-serif;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <div id="order_details"></div>
+    <script id="order_template" type="text/x-handlebars-template">
+      <table
+        role="presentation"
+        style="
+              width: 120%;
+              border-collapse: collapse;
+              border: 0;
+              border-spacing: 0;
+              background: #ffffff;
+            "
+      >
+        <tr>
+          <td align="center" style="padding: 0">
+            <table
+              role="presentation"
+              style="
+                    width: 602px;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    text-align: left;
+                    background: #ffffff;
+                    box-shadow: 2px 2px 4px rgba(225, 225, 225, 0.1);
+                  "
+            >
+              <tr>
+                <td align="center" style="padding: 15px 0 15px 0">
+                  <img
+                    src="https://res.cloudinary.com/soft-web-digital/image/upload/v1693892065/N4Dollar/image-20230724-084138_jebbtg.png"
+                    alt="email_logo"
+                    style="
+                          height: auto;
+                          width: 120%;
+                          display: block;
+                          object-fit: contain;
+                        "
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0">
+                  <table
+                    role="presentation"
+                    style="
+                          width: 120%;
+                          border-collapse: collapse;
+                          border: 0;
+                          border-spacing: 0;
+                        "
+                  >
+                    <tr>
+                      <td style="color: #6e6e6e; background: #ffffff">
+                        <span
+                          style="
+                                display: block;
+                                padding: 0 12px;
+                                margin: 0 auto;
+                                padding: 24px 16px;
+                                color: #6e6e6e;
+                              "
+                        >
+                          <p
+                            style="
+                                  font-size: 16px;
+                                  line-height: 24px;
+                                  margin: 0 0 16px;
+                                  color: #3e3c3e;
+                                "
+                          >
+                            Dear
+                            {{lastname}}
+                            {{firstname}}
+                            {{#if middlename}} {{middlename}},{{/if}} 
+                            We are contacting you because there
+                            is an <i> amount due</i> on your purchase
+                            {{purchase_id}}:
+                          </p>
+                        </span>
+                      </td>
+                    </tr>
+                    <table
+                      align="center"
+                      style="
+                            border-bottom-right-radius: 12px;
+                            border-bottom-left-radius: 12px;
+                            border: solid 1px black;
+                            padding: 12px;
+                            border-collapse: collapse;
+                            width: 100%;
+                          "
+                    >
+                      <caption
+                        style="
+                              background: #281f52;
+                              color: #ffffff;
+                              border-top-right-radius: 12px;
+                              border-top-left-radius: 12px;
+                              padding: 12px;
+                              font-size: 20px;
+                              font-weight: 500;
+                            "
+                      >
+                        Purchase Summary
+                      </caption>
+                      <tr style="border-bottom: solid 1px #9e9e9e">
+                        <td style="padding: 16px 12px">Date:</td>
+                        <td>{{purchase_date}}</td>
+                      </tr>
+                      {{#each purchases}}
+                        <tr
+                          style="
+                              background: #ebebeb;
+                              border-bottom: solid 1px #9e9e9e;
+                            "
+                        >
+                          <td style="padding: 16px 12px">{{this.quantity}}x</td>
+                          <td>{{this.name}}</td>
+                          <td>{{this.price}}</td>
+                        </tr>
+                      {{/each}}
+                      <tr>
+                        <td></td>
+                        <td style="padding: 16px 12px">
+                          <strong>Total Amount</strong>
+                        </td>
+                        <td>{{total_amount}} Kn</td>
+                      </tr>
+                      <tr
+                        style="background: #ebebeb; border: solid 1px #9e9e9e"
+                      >
+                        <td></td>
+                        <td style="padding: 16px 12px">
+                          <strong>Amount Paid</strong>
+                        </td>
+                        <td>{{amount_paid}} Kn</td>
+                      </tr>
+                    </table>
+                    <tr>
+                      <td style="color: #6e6e6e; background: #ffffff">
+                        <span
+                          style="
+                                display: block;
+                                padding: 0 12px;
+                                margin: 0 auto;
+                                padding: 24px 16px;
+                                color: #6e6e6e;
+                              "
+                        >
+                          <p
+                            style="
+                                  font-size: 16px;
+                                  line-height: 24px;
+                                  margin: 0 0 16px;
+                                  color: #3e3c3e;
+                                "
+                          >
+                            According to our records, the <i>amount due</i> is
+                            {{amount_due}}Kn. Please, click on the next button
+                            <strong>to pay</strong> this difference:
+                          </p>
+                          <a
+                            href="https://pet-shop.buckhill.com.hr/checkout"
+                            target=”_blank”
+                            style="
+                                  text-decoration: none;
+                                  color: #ffffff;
+                                  padding: 12px 34px;
+                                  background: #281f52;
+                                  border-radius: 50px;
+                                  text-align: center;
+                                  font-size: 18px;
+                                  font-weight: 600;
+                                  border: none;
+                                  outline: none;
+                                  display: block;
+                                  width: 250px;
+                                  margin: 40px auto;
+                                "
+                          >
+                            PAY NOW
+                          </a>
+                          <span
+                            style="
+                                  display: block;
+                                  margin-top: 1rem;
+                                  color: #3e3c3e;
+                                "
+                          >
+                            If you have any other concerns, please contact our
+                            technical support team.
+                            <br />
+                            <br />
+                            Kind regards,
+                            <br />
+                            <br />
+                            Petson Team
+                          </span>
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </script>
+    <script id="order_template" type="text/x-handlebars-template">
+      <h1>Order Details</h1>
+      <p>Name: {{ lastname }} {{ firstname }} {{ middlename }}</p>
+      <p>Purchase ID: {{ purchase_id }}</p>
+      <p>Amount Due: ${{ amount_due }}</p>
+      <p>Amount Paid: ${{ amount_paid }}</p>
+      <p>Total Amount: ${{ total_amount }}</p>
+      <p>Purchase Date: {{ purchase_date }}</p>
+      <h2>Purchases:</h2>
+      <ul>
+        {{#each purchases}}
+          <li>{{ quantity }}x {{ name }} - ${{ price }}</li>
+        {{/each}}
+      </ul>
+    </script>
+    
+    <div id="order_details"></div>
+
+    <script>
+      // Function to authenticate and obtain JWT token
+async function authenticate(credentials) {
+  try {
+    const response = await fetch('http://pet-shop.buckhill.com.hr/api/v1/admin/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(credentials).toString(),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.success === 1 && data.data && data.data.token) {
+      return data.data.token;
+    } else {
+      throw new Error('Authentication failed.');
+    }
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+// Function to fetch data with JWT token
+async function fetchDataWithToken(url, jwtToken) {
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${jwtToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+function formatNumber(num) {
+  return new Intl.NumberFormat().format(num);
+}
+
+// Define the login credentials to be put in env variable on the server
+const credentials = {
+  email: "admin@buckhill.co.uk",
+  password: "admin"
+};
+
+(async () => {
+  try {
+const order_template = document.querySelector("#order_template").innerHTML;
+const template = Handlebars.compile(order_template);
+    const jwtToken = await authenticate(credentials);
+    const ordersUrl = 'http://pet-shop.buckhill.com.hr/api/v1/orders?page=1&limit=1';
+    const data = await fetchDataWithToken(ordersUrl, jwtToken);
+
+    const templateData = {
+      firstname: data.data[0].user.first_name,
+      middlename: "Tsubarashi",
+      lastname: data.data[0].user.last_name,
+      purchase_id: `#${data.data[0].uuid}`,
+      amount_due: formatNumber(data.data[0].amount),
+      amount_paid: formatNumber(data.data[0].amount),
+      total_amount: formatNumber(data.data[0].amount + data.data[0].delivery_fee),
+      purchase_date: new Date(data.data[0].created_at).toLocaleDateString(),
+      purchases: data.data[0].products.map(product => ({
+        quantity: product.quantity,
+        name: product.product,
+        price: formatNumber(product.price * product.quantity)
+      }))
+    };
+
+    const templateObject = template(templateData);
+    document.querySelector("#order_details").innerHTML = templateObject;
+  } catch (error) {
+    console.error(error.message);
+  }
+})();
+    </script>
+  </body>
+</html>
