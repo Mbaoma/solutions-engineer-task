@@ -108,8 +108,8 @@
                           >
                             Dear
                             {{lastname}}
-                            {{firstname}}
-                            {{#if middlename}} {{middlename}},{{/if}} 
+                            {{firstname}},
+                            {{#if middlename}}{{middlename}}{{/if}}
                             We are contacting you because there
                             is an <i> amount due</i> on your purchase
                             {{purchase_id}}:
@@ -332,7 +332,7 @@ const template = Handlebars.compile(order_template);
 
     const templateData = {
       firstname: data.data[0].user.first_name,
-      middlename: "Tsubarashi",
+      middlename: data.data[0].user.middle_name,
       lastname: data.data[0].user.last_name,
       purchase_id: `#${data.data[0].uuid}`,
       amount_due: formatNumber(data.data[0].amount),
